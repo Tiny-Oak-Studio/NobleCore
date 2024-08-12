@@ -6,7 +6,7 @@
 namespace Noble::Core
 {
     /// @brief Contains defintions for the sizes of various atomic objects.
-    class Memory
+    class Translation
     {
     public:
 
