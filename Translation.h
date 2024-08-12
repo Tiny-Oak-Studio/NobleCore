@@ -2,6 +2,8 @@
 #define NOBLE_CORE_MEMORY_H_INCLUDED
 
 #include <stdint.h> //Use the older header to be compatible with Arduino.
+#include "Op.h"
+#include "Address.h"
 
 namespace Noble::Core
 {
@@ -9,11 +11,10 @@ namespace Noble::Core
     class Translation
     {
     public:
-
         /// @brief Compile-time constant for converting Ops and Addresses.
         const uint8_t OpsPerAddress = sizeof (Address) / sizeof (Op);
-    protected:
 
+        
     };
 }
 

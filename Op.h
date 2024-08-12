@@ -11,7 +11,21 @@ namespace Noble::Core
     public:
         /// @brief Ops are the basic operation type of the NobleVM.
         typedef uint8_t OpType;
-        
+
+        /// @brief All operations codes supported by the NobleVM.
+        enum Code : OpType
+        {
+            Add = 0,
+            Constant,
+            Divide,
+            Greater,
+            Less,
+            Multiply,
+            Not,
+            Return,
+            Subtract, 
+        };
+
     protected:
 
     };
