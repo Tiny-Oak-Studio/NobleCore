@@ -34,3 +34,6 @@
 # Testing
 main.cpp
 main
+
+# Environment
+.vscode/tasks.json
