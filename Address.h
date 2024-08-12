@@ -2,6 +2,7 @@
 #define NOBLE_CORE_ADDRESS_H_INCLUDED
 
 #include <stdint.h> //Use the older header to be compatible with Arduino.
+#include "Memory.h" //Op, Address definitions
 
 namespace Noble::Core
 {
@@ -9,7 +10,9 @@ namespace Noble::Core
     class Address
     {
     public:
-        
+        /// @brief Type for spanning the address space of ATMega chips.
+        typedef uint16_t AddressType;
+
     protected:
 
     };

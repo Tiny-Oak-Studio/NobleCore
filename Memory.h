@@ -9,7 +9,9 @@ namespace Noble::Core
     class Memory
     {
     public:
-        
+
+        /// @brief Compile-time constant for converting Ops and Addresses.
+        const uint8_t OpsPerAddress = sizeof (Address) / sizeof (Op);
     protected:
 
     };
