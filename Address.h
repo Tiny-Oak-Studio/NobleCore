@@ -1,7 +1,7 @@
 #ifndef NOBLE_CORE_ADDRESS_H_INCLUDED
 #define NOBLE_CORE_ADDRESS_H_INCLUDED
 
-#include <stdint.h>
+#include <stdint.h> //Use the older header to be compatible with Arduino.
 
 namespace Noble::Core
 {
