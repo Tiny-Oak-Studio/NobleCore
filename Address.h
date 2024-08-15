@@ -11,9 +11,6 @@ namespace Noble::Core
     public:
         /// @brief Type for spanning the address space of ATMega chips.
         typedef uint16_t AddressType;
-
-    protected:
-
     };
 }
 

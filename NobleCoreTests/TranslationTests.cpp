@@ -31,7 +31,7 @@ TEST(Translation, OpsToAddressMaxValue)
     EXPECT_EQ(Translation::OpsToAddress(ops), address);
 }
 
-/// @brief Test that an asymmetric ops sequnce translate to a correct address
+/// @brief Test that an asymmetric ops sequence translate to a correct address
 TEST(Translation, OpsToAddressRoundTrip)
 {
     Op::OpType ops[Translation::OpsPerAddress];
@@ -47,21 +47,19 @@ TEST(Translation, OpsToAddressRoundTrip)
         }
     }
     Address::AddressType address = Translation::OpsToAddress(ops);
-    Op::OpType* newOps = Translation::AddressToOps(address);
-    EXPECT_EQ(memcmp(newOps, ops, 2), 0);
-    delete [] newOps;
+    List<Op::OpType> newOps = Translation::AddressToOps(address);
+    EXPECT_EQ(memcmp(newOps.GetArray(), ops, 2), 0);
 }
 
 /// @brief Tests that a zero-address correctly translates to ops
 TEST(Translation, AddressToOpsZero)
 {
     Address::AddressType address = 0;
-    auto* ops = Translation::AddressToOps(address);
+    List<Op::OpType> ops = Translation::AddressToOps(address);
     for (int i = 0; i < Translation::OpsPerAddress; ++i)
     {
         EXPECT_EQ(ops[i], 0);
     }
-    delete [] ops;
 }
 
 /// @brief Tests that a max-value address correctly translates to ops
@@ -73,10 +71,9 @@ TEST(Translation, AddressToOpsMaxValue)
     Op::OpType maxValueOpType = 0;
     maxValueOpType = ~maxValueOpType;
 
-    auto* ops = Translation::AddressToOps(address);
+    List<Op::OpType> ops = Translation::AddressToOps(address);
     for (int i = 0; i < Translation::OpsPerAddress; ++i)
     {
         EXPECT_EQ(ops[i], maxValueOpType);
     }
-    delete [] ops;
 }

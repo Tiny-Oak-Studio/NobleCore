@@ -32,6 +32,9 @@ namespace Noble::Core
 
         /// @brief Returns the number of elements in the array
         Address::AddressType Count() const;
+
+        /// @brief Get a pointer to the underlying array
+        T* GetArray();
     protected:
         /// @brief The number of elements initially allocated to the array
         static constexpr Address::AddressType InitialArraySize = 2;
@@ -99,6 +102,12 @@ namespace Noble::Core
     Address::AddressType List<T>::Count() const
     {
         return count;
+    }
+
+    template<typename T>
+    T* List<T>::GetArray()
+    {
+        return array;
     }
 } // Noble::Core
 
