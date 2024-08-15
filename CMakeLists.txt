@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.3)
-project(my_project)
+project(NobleCore)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -16,13 +16,13 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-        hello_test
+        NobleCoreTests
         NobleCoreTests.cpp
 )
 target_link_libraries(
-        hello_test
+        NobleCoreTests
         GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(hello_test)
+gtest_discover_tests(NobleCoreTests)
