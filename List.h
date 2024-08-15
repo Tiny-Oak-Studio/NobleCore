@@ -1,7 +1,7 @@
 #ifndef NOBLE_CORE_LIST_H_INCLUDED
 #define NOBLE_CORE_LIST_H_INCLUDED
 
-#include <string.h>
+#include <string.h> //Use old header for Arduino compatibility.
 
 #include "Address.h"
 
