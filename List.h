@@ -12,7 +12,7 @@ namespace Noble::Core
     class List
     {
     public:
-        /// @brief Allocates the the underlying array
+        /// @brief Allocates the underlying array
         List();
 
         /// @brief Deletes the underlying array when destroyed
@@ -27,7 +27,7 @@ namespace Noble::Core
         /// @brief Access an indexed element of the array
         T operator[](Address::AddressType index);
 
-        /// @brief Returns the capcity of the array
+        /// @brief Returns the capacity of the array
         Address::AddressType Capacity() const;
 
         /// @brief Returns the number of elements in the array
