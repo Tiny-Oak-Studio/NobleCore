@@ -25,9 +25,6 @@ namespace Noble::Core
             Return,
             Subtract, 
         };
-
-    protected:
-
     };
 }
 

@@ -18,7 +18,19 @@ enable_testing()
 
 add_executable(
         NobleCoreTests
-        NobleCoreTests.cpp
+        Translation.cpp
+        Translation.h
+        Op.cpp
+        Op.h
+        Frame.cpp
+        Frame.h
+        Address.cpp
+        Address.h
+        NobleCoreTests/NobleCoreTests.cpp
+        NobleCoreTests/TranslationTests.cpp
+        List.cpp
+        List.h
+        NobleCoreTests/ListTests.cpp
 )
 target_link_libraries(
         NobleCoreTests

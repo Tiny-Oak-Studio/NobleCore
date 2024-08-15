@@ -12,9 +12,23 @@ namespace Noble::Core
     {
     public:
         /// @brief Compile-time constant for converting Ops and Addresses.
-        const uint8_t OpsPerAddress = sizeof (Address) / sizeof (Op);
+        static constexpr uint8_t OpsPerAddress = sizeof (Address::AddressType) / sizeof (Op::OpType);
 
-        
+        /**
+         * @brief Converts OpTypes to an AddressType
+         * @param ops The OpTypes to convert to an AddressType
+         * @return An AddressType created from the bits of the provided OpTypes
+         *
+         * Type-puns the bytes from the given OpTypes into an AddressType.
+         **/
+        static Address::AddressType OpsToAddress(Op::OpType ops[OpsPerAddress]);
+
+        /**
+         * @brief Converts an AddressType to a list of OpTypes
+         * @param address The address to be converted
+         * @return A list of OpTypes containing the bits of the given address
+         */
+        static Op::OpType* AddressToOps(Address::AddressType address);
     };
 }
 
