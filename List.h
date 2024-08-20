@@ -41,6 +41,9 @@ namespace Noble::Core
 
         /// @brief Get a pointer to the underlying array
         T* GetArray();
+
+        /// @brief Get a const pointer to the underlying array
+        const T* GetArray() const;
     protected:
         /// @brief The number of elements initially allocated to the array
         static constexpr Address::AddressType InitialArraySize = 2;
@@ -130,6 +133,13 @@ namespace Noble::Core
     {
         return array;
     }
+
+    template<typename T>
+    const T* List<T>::GetArray() const
+    {
+        return array;
+    }
+
 } // Noble::Core
 
 #endif //LIST_H

@@ -18,8 +18,14 @@ namespace Noble::Core
         /// @brief Writes an op to this frame's underlying array
         void WriteOp(const Op::OpType& op);
 
+        /// @brief Returns the op at the specified address
+        Op::OpType ReadOp(const Address::AddressType& address);
+
         /// @brief Writes an address into the frame's underlying array
         void WriteAddress(const Address::AddressType& address);
+
+        /// @brief Reads an address from the underlying array at the provided index address
+        Address::AddressType ReadAddress(const Address::AddressType& address) const;
     protected:
         /// @brief Internal variable for keeping track of how many Frames have been created.
         static uint32_t NextFrameID;

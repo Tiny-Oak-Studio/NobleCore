@@ -25,6 +25,14 @@ namespace Noble::Core
         static Address::AddressType OpsToAddress(Op::OpType ops[OpsPerAddress]);
 
         /**
+         * @brief Reads an address from given list at the specified index
+         * @param list The list to read from
+         * @param index The element index to read at
+         * @return The address created from the bits starting in the list at the given index
+         */
+        static Address::AddressType OpsToAddress(const List<Op::OpType>& list, Address::AddressType index);
+
+        /**
          * @brief Converts an AddressType to a list of OpTypes
          * @param address The address to be converted
          * @return A list of OpTypes containing the bits of the given address

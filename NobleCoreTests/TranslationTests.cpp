@@ -51,6 +51,26 @@ TEST(Translation, OpsToAddressRoundTrip)
     EXPECT_EQ(memcmp(newOps.GetArray(), ops, 2), 0);
 }
 
+/// @brief Test that an asymmetric ops sequence translate to a correct address
+TEST(Translation, OpsToAddressList)
+{
+    List<Op::OpType> ops;
+    for (int i = 0; i < Translation::OpsPerAddress; ++i)
+    {
+        if (i == 0)
+        {
+            ops[i] = 102;
+        }
+        else
+        {
+            ops[i] = 75;
+        }
+    }
+    Address::AddressType address = Translation::OpsToAddress(ops);
+    List<Op::OpType> newOps = Translation::AddressToOps(address);
+    EXPECT_EQ(memcmp(newOps.GetArray(), ops, 2), 0);
+}
+
 /// @brief Tests that a zero-address correctly translates to ops
 TEST(Translation, AddressToOpsZero)
 {

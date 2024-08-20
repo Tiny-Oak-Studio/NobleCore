@@ -14,9 +14,18 @@ namespace Noble::Core
         ops.Add(op);
     }
 
+    Op::OpType Frame::ReadOp(const Address::AddressType& address)
+    {
+        return ops[address];
+    }
+
     void Frame::WriteAddress(const Address::AddressType &address)
     {
         ops.Add(Translation::AddressToOps(address));
     }
 
+    Address::AddressType Frame::ReadAddress(const Address::AddressType &address) const
+    {
+        return Translation::OpsToAddress(ops, address);
+    }
 }
