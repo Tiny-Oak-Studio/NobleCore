@@ -1,7 +1,7 @@
 #ifndef NOBLE_CORE_LIST_H_INCLUDED
 #define NOBLE_CORE_LIST_H_INCLUDED
 
-#include <string.h>
+#include <string.h> //Use old headers for Arduino compatibility
 
 #include "Address.h"
 
@@ -24,10 +24,13 @@ namespace Noble::Core
         /// @brief Removes the most recently added element
         T Pop();
 
-        /// @brief Access an indexed element of the array
-        T operator[](Address::AddressType index);
+        /// @brief Get a copy of an indexed element of the array
+        T operator[](Address::AddressType index) const;
 
-        /// @brief Returns the capcity of the array
+        /// @brief Access an indexed element of the array
+        T& operator[](Address::AddressType index);
+
+        /// @brief Returns the capacity of the array
         Address::AddressType Capacity() const;
 
         /// @brief Returns the number of elements in the array
@@ -67,7 +70,7 @@ namespace Noble::Core
     {
         if (count >= capacity)
         {
-            Address::AddressType newCapacity = capacity * GrowthFactor;
+            const Address::AddressType newCapacity = capacity * GrowthFactor;
             T* tempArray = new T[newCapacity];
             memcpy(tempArray, array, count * sizeof(T));
             delete [] array;
@@ -84,7 +87,13 @@ namespace Noble::Core
     }
 
     template<typename T>
-    T List<T>::operator[](Address::AddressType index)
+    T List<T>::operator[](Address::AddressType index) const
+    {
+        return array[index];
+    }
+
+    template<typename T>
+    T& List<T>::operator[](Address::AddressType index)
     {
         return array[index];
     }

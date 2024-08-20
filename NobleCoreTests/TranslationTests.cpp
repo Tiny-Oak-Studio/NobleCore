@@ -31,7 +31,7 @@ TEST(Translation, OpsToAddressMaxValue)
     EXPECT_EQ(Translation::OpsToAddress(ops), address);
 }
 
-/// @brief Test that an asymmetric ops sequnce translate to a correct address
+/// @brief Test that an asymmetric ops sequence translate to a correct address
 TEST(Translation, OpsToAddressRoundTrip)
 {
     Op::OpType ops[Translation::OpsPerAddress];
@@ -73,7 +73,7 @@ TEST(Translation, AddressToOpsMaxValue)
     Op::OpType maxValueOpType = 0;
     maxValueOpType = ~maxValueOpType;
 
-    auto* ops = Translation::AddressToOps(address);
+    const Op::OpType* ops = Translation::AddressToOps(address);
     for (int i = 0; i < Translation::OpsPerAddress; ++i)
     {
         EXPECT_EQ(ops[i], maxValueOpType);
