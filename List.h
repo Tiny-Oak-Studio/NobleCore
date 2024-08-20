@@ -152,7 +152,6 @@ namespace Noble::Core
     {
         return array;
     }
-
 } // Noble::Core
 
 #endif //LIST_H

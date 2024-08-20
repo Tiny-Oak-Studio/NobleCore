@@ -2,6 +2,7 @@
 
 namespace Noble::Core
 {
+    /// @brief We simply enumerate frames as they're created
     uint32_t Frame::NextFrameID = 0;
 
     Frame::Frame()
