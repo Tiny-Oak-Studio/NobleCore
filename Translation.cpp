@@ -11,10 +11,10 @@ namespace Noble::Core
         return address;
     }
 
-    List<Op::OpType> Translation::AddressToOps(Address::AddressType address)
+    Op::OpType* Translation::AddressToOps(Address::AddressType address)
     {
-        List<Op::OpType> ops;
-        memcpy(ops.GetArray(), &address, sizeof(address));
+        auto* ops = new Op::OpType[OpsPerAddress];
+        memcpy(ops, &address, sizeof(address));
         return ops;
     }
 

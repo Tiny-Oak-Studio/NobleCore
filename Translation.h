@@ -4,7 +4,6 @@
 #include <stdint.h> //Use the older header to be compatible with Arduino.
 #include "Op.h"
 #include "Address.h"
-#include "List.h"
 
 namespace Noble::Core
 {
@@ -29,7 +28,7 @@ namespace Noble::Core
          * @param address The address to be converted
          * @return A list of OpTypes containing the bits of the given address
          */
-        static List<Op::OpType> AddressToOps(Address::AddressType address);
+        static Op::OpType* AddressToOps(Address::AddressType address);
     };
 }
 
