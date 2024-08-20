@@ -5,7 +5,7 @@
 
 namespace Noble::Core
 {
-    /// @brief Contains defintions for the sizes of various atomic objects.
+    /// @brief Contains definitions for the sizes of various atomic objects.
     class Op
     {
     public:

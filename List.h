@@ -12,14 +12,17 @@ namespace Noble::Core
     class List
     {
     public:
-        /// @brief Allocates the the underlying array
-        List();
+        /// @brief Allocates the underlying array
+        explicit List(Address::AddressType startCapacity = InitialArraySize);
 
         /// @brief Deletes the underlying array when destroyed
         ~List();
 
         /// @brief Adds an element to the array
         void Add(T element);
+
+        /// @brief Appends the elements from the given list to this list
+        void Add(const List& list);
 
         /// @brief Removes the most recently added element
         T Pop();
@@ -35,6 +38,9 @@ namespace Noble::Core
 
         /// @brief Returns the number of elements in the array
         Address::AddressType Count() const;
+
+        /// @brief Get a pointer to the underlying array
+        T* GetArray();
     protected:
         /// @brief The number of elements initially allocated to the array
         static constexpr Address::AddressType InitialArraySize = 2;
@@ -53,10 +59,10 @@ namespace Noble::Core
     };
 
     template<typename T>
-    List<T>::List()
+    List<T>::List(const Address::AddressType startCapacity)
     {
-        array = new T[InitialArraySize];
-        capacity = InitialArraySize;
+        array = new T[startCapacity];
+        capacity = startCapacity;
     }
 
     template<typename T>
@@ -78,6 +84,15 @@ namespace Noble::Core
             capacity = newCapacity;
         }
         array[count++] = element;
+    }
+
+    template<typename T>
+    void List<T>::Add(const List& list)
+    {
+        for (Address::AddressType i = 0; i < list.count; ++i)
+        {
+            Add(list[i]);
+        }
     }
 
     template<typename T>
@@ -108,6 +123,12 @@ namespace Noble::Core
     Address::AddressType List<T>::Count() const
     {
         return count;
+    }
+
+    template<typename T>
+    T* List<T>::GetArray()
+    {
+        return array;
     }
 } // Noble::Core
 
