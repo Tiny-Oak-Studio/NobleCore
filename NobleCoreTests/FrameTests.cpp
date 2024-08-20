@@ -31,3 +31,25 @@ TEST(Frame, WriteReadOneOpOneAddress)
     EXPECT_EQ(frame.ReadAddress(1), address);
     EXPECT_EQ(frame.ReadOp(0), op);
 }
+
+TEST(Frame, WriteReadOneHundredOpsAndAddresses)
+{
+    Frame frame;
+    for (Address::AddressType i = 0; i < 100; ++i)
+    {
+        const Op::OpType op = i;
+        const Address::AddressType address = 12313 + i;
+
+        frame.WriteOp(op);
+        frame.WriteAddress(address);
+    }
+
+    for (Address::AddressType i = 0; i < 100; ++i)
+    {
+        const Op::OpType op = i;
+        const Address::AddressType address = 12313 + i;
+
+        EXPECT_EQ(frame.ReadAddress(i * (sizeof(Op::OpType) + Translation::OpsPerAddress) + 1), address);
+        EXPECT_EQ(frame.ReadOp(i * (sizeof(Op::OpType) + Translation::OpsPerAddress)), op);
+    }
+}

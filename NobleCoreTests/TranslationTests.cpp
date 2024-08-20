@@ -66,9 +66,9 @@ TEST(Translation, OpsToAddressList)
             ops[i] = 75;
         }
     }
-    Address::AddressType address = Translation::OpsToAddress(ops);
+    Address::AddressType address = Translation::OpsToAddress(ops, 0);
     List<Op::OpType> newOps = Translation::AddressToOps(address);
-    EXPECT_EQ(memcmp(newOps.GetArray(), ops, 2), 0);
+    EXPECT_EQ(memcmp(newOps.GetArray(), ops.GetArray(), sizeof(address)), 0);
 }
 
 /// @brief Tests that a zero-address correctly translates to ops

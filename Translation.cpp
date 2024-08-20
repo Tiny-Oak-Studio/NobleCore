@@ -1,7 +1,6 @@
 #include "Translation.h"
 
 #include <string.h> //Use the older header for Arduino compatibility.
-#include <bits/ranges_base.h>
 
 namespace Noble::Core
 {
@@ -21,9 +20,9 @@ namespace Noble::Core
 
     List<Op::OpType> Translation::AddressToOps(const Address::AddressType& address)
     {
-        List<Op::OpType> ops(OpsPerAddress);
+        List<Op::OpType> ops;
+        ops.Resize(sizeof(address));
         memcpy(ops.GetArray(), &address, sizeof(address));
         return ops;
     }
-
 }

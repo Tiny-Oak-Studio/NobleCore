@@ -13,7 +13,7 @@ namespace Noble::Core
     {
     public:
         /// @brief Allocates the underlying array
-        explicit List(Address::AddressType startCapacity = InitialArraySize);
+        explicit List();
 
         /// @brief Deletes the underlying array when destroyed
         ~List();
@@ -23,6 +23,9 @@ namespace Noble::Core
 
         /// @brief Appends the elements from the given list to this list
         void Add(const List& list);
+
+        /// @brief Resize the underlying array to specified size
+        void Resize(Address::AddressType size);
 
         /// @brief Removes the most recently added element
         T Pop();
@@ -62,10 +65,10 @@ namespace Noble::Core
     };
 
     template<typename T>
-    List<T>::List(const Address::AddressType startCapacity)
+    List<T>::List()
     {
-        array = new T[startCapacity];
-        capacity = startCapacity;
+        array = new T[InitialArraySize];
+        capacity = InitialArraySize;
     }
 
     template<typename T>
@@ -94,8 +97,18 @@ namespace Noble::Core
     {
         for (Address::AddressType i = 0; i < list.count; ++i)
         {
-            Add(list[i]);
+            this->Add(list[i]);
         }
+    }
+
+    template<typename T>
+    void List<T>::Resize(const Address::AddressType size)
+    {
+        delete [] array;
+        array = new T[size];
+        capacity = size;
+        count = size;
+        memset(array, 0, count * sizeof(T)); //Zero-write the empty elements
     }
 
     template<typename T>
