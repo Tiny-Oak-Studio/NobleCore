@@ -33,6 +33,9 @@ namespace Noble::Core
 
         /// @brief Reads a constant at the given address.
         const Value& ReadConstant(Address::AddressType address) const;
+
+        /// @brief Returns a pointer to the start of this frame's op-array
+        Op::OpType* GetOps() const;
     protected:
         /// @brief Internal variable for keeping track of how many Frames have been created.
         static uint32_t NextFrameID;
