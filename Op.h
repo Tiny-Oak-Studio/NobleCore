@@ -21,6 +21,7 @@ namespace Noble::Core
             Greater,
             Less,
             Multiply,
+            Negate,
             Not,
             Return,
             Subtract, 

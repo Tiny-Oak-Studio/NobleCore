@@ -46,9 +46,9 @@ TEST(Translation, OpsToAddressRoundTrip)
             ops[i] = 75;
         }
     }
-    Address::AddressType address = Translation::OpsToAddress(ops);
+    const Address::AddressType address = Translation::OpsToAddress(ops);
     List<Op::OpType> newOps = Translation::AddressToOps(address);
-    EXPECT_EQ(memcmp(newOps.GetArray(), ops, 2), 0);
+    EXPECT_EQ(memcmp(newOps.GetArray(), ops, Translation::OpsPerAddress), 0);
 }
 
 /// @brief Test that an asymmetric ops sequence translate to a correct address
