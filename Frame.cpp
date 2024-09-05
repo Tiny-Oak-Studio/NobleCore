@@ -29,4 +29,20 @@ namespace Noble::Core
     {
         return Translation::OpsToAddress(ops, address);
     }
+
+    Address::AddressType Frame::AddConstant(Value value)
+    {
+        constants.Add(value);
+        return constants.Count() - 1;
+    }
+
+    const Value& Frame::ReadConstant(Address::AddressType address) const
+    {
+        return constants[address];
+    }
+
+    const Op::OpType* Frame::GetOps() const
+    {
+        return ops.GetArray();
+    }
 }

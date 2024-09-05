@@ -56,3 +56,25 @@ TEST(Frame, WriteReadOneHundredOpsAndAddresses)
         EXPECT_EQ(frame.ReadOp(i * (sizeof(Op::OpType) + Translation::OpsPerAddress)), op);
     }
 }
+
+TEST(Frame, WriteReadOneConstant)
+{
+    Frame frame;
+    Value testValue = 198.87f;
+    Address::AddressType address = frame.AddConstant(testValue);
+    EXPECT_EQ(frame.ReadConstant(address), testValue);
+}
+
+TEST(Frame, WriteReadOneHundredConstants)
+{
+    Frame frame;
+    const float RandomOffset = 120.543f;
+    for (Address::AddressType i = 0; i < 100; ++i)
+    {
+        frame.AddConstant(static_cast<float>(i) + RandomOffset);
+    }
+    for (Address::AddressType i = 0; i < 100; ++i)
+    {
+        EXPECT_EQ(frame.ReadConstant(i), static_cast<float>(i) + RandomOffset);
+    }
+}

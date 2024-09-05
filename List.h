@@ -31,7 +31,7 @@ namespace Noble::Core
         T Pop();
 
         /// @brief Get a copy of an indexed element of the array
-        T operator[](Address::AddressType index) const;
+        const T& operator[](Address::AddressType index) const;
 
         /// @brief Access an indexed element of the array
         T& operator[](Address::AddressType index);
@@ -118,7 +118,7 @@ namespace Noble::Core
     }
 
     template<typename T>
-    T List<T>::operator[](Address::AddressType index) const
+    const T& List<T>::operator[](Address::AddressType index) const
     {
         return array[index];
     }

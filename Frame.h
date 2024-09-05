@@ -2,6 +2,7 @@
 #define NOBLE_CORE_FRAME_H_INCLUDED
 
 #include <stdint.h> //Use old header for Arduino compatibility
+#include "Value.h"
 #include "List.h"
 #include "Op.h"
 #include "Translation.h"
@@ -26,12 +27,24 @@ namespace Noble::Core
 
         /// @brief Reads an address from the underlying array at the provided index address
         Address::AddressType ReadAddress(const Address::AddressType& address) const;
+
+        /// @brief Adds a constant to this frame
+        Address::AddressType AddConstant(Value value);
+
+        /// @brief Reads a constant at the given address.
+        const Value& ReadConstant(Address::AddressType address) const;
+
+        /// @brief Returns a pointer to the start of this frame's op-array
+        const Op::OpType* GetOps() const;
     protected:
         /// @brief Internal variable for keeping track of how many Frames have been created.
         static uint32_t NextFrameID;
 
         /// @brief Storage for reading/writing ops in the compiler
         List<Op::OpType> ops;
+
+        /// @brief Storage for the constants used in this frame
+        List<Value> constants;
 
         /// @brief The unique ID for this Frame.
         uint32_t frameID;
