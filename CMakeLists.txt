@@ -4,6 +4,9 @@ project(NobleCore)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Uncomment the below line to enable 64-bit values.
+# add_compile_definitions(SET_VALUE_64)
+
 include(FetchContent)
 FetchContent_Declare(
         googletest

@@ -60,15 +60,15 @@ TEST(Frame, WriteReadOneHundredOpsAndAddresses)
 TEST(Frame, WriteReadOneConstant)
 {
     Frame frame;
-    Value testValue = 198.87f;
-    Address::AddressType address = frame.AddConstant(testValue);
+    const ValueType testValue = ToValue(198.87f);
+    const Address::AddressType address = frame.AddConstant(testValue);
     EXPECT_EQ(frame.ReadConstant(address), testValue);
 }
 
 TEST(Frame, WriteReadOneHundredConstants)
 {
     Frame frame;
-    const float RandomOffset = 120.543f;
+    const ValueType RandomOffset = ToValue(120.543f);
     for (Address::AddressType i = 0; i < 100; ++i)
     {
         frame.AddConstant(static_cast<float>(i) + RandomOffset);

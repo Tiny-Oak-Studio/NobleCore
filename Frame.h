@@ -7,6 +7,8 @@
 #include "Op.h"
 #include "Translation.h"
 
+using namespace Noble::Core::Runtime;
+
 namespace Noble::Core
 {
     /// @brief Contains Noble Assembly Language Sequence (NAL) information and translation methods.
@@ -29,10 +31,10 @@ namespace Noble::Core
         Address::AddressType ReadAddress(const Address::AddressType& address) const;
 
         /// @brief Adds a constant to this frame
-        Address::AddressType AddConstant(Value value);
+        Address::AddressType AddConstant(ValueType value);
 
         /// @brief Reads a constant at the given address.
-        const Value& ReadConstant(Address::AddressType address) const;
+        const ValueType& ReadConstant(Address::AddressType address) const;
 
         /// @brief Returns a pointer to the start of this frame's op-array
         const Op::OpType* GetOps() const;
@@ -44,7 +46,7 @@ namespace Noble::Core
         List<Op::OpType> ops;
 
         /// @brief Storage for the constants used in this frame
-        List<Value> constants;
+        List<ValueType> constants;
 
         /// @brief The unique ID for this Frame.
         uint32_t frameID;
