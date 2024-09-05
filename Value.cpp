@@ -31,7 +31,7 @@ namespace Noble::Core::Runtime
         return value == NullValue;
     }
 
-    bool IsNumber(const ValueType value)
+    bool IsFloat(const ValueType value)
     {
         return (value & QNaN) != QNaN;
     }
