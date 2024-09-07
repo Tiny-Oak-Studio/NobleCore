@@ -8,8 +8,8 @@ using namespace Noble::Core;
 /// @brief Tests that zero-ops translates to a zero address
 TEST(Translation, OpsToAddressZeroes)
 {
-    Op::OpType ops[Translation::OpsPerAddress];
-    for (Op::OpType & op : ops)
+    Op::Type ops[Translation::OpsPerAddress];
+    for (Op::Type & op : ops)
     {
         op = 0;
     }
@@ -20,8 +20,8 @@ TEST(Translation, OpsToAddressZeroes)
 /// @brief Test that max-value ops translate to a max-value address
 TEST(Translation, OpsToAddressMaxValue)
 {
-    Op::OpType ops[Translation::OpsPerAddress];
-    for (Op::OpType & op : ops)
+    Op::Type ops[Translation::OpsPerAddress];
+    for (Op::Type & op : ops)
     {
         op = 0;
         op = ~op;
@@ -34,7 +34,7 @@ TEST(Translation, OpsToAddressMaxValue)
 /// @brief Test that an asymmetric ops sequence translate to a correct address
 TEST(Translation, OpsToAddressRoundTrip)
 {
-    Op::OpType ops[Translation::OpsPerAddress];
+    Op::Type ops[Translation::OpsPerAddress];
     for (int i = 0; i < Translation::OpsPerAddress; ++i)
     {
         if (i == 0)
@@ -47,14 +47,14 @@ TEST(Translation, OpsToAddressRoundTrip)
         }
     }
     const Address::AddressType address = Translation::OpsToAddress(ops);
-    List<Op::OpType> newOps = Translation::AddressToOps(address);
+    List<Op::Type> newOps = Translation::AddressToOps(address);
     EXPECT_EQ(memcmp(newOps.GetArray(), ops, Translation::OpsPerAddress), 0);
 }
 
 /// @brief Test that an asymmetric ops sequence translate to a correct address
 TEST(Translation, OpsToAddressList)
 {
-    List<Op::OpType> ops;
+    List<Op::Type> ops;
     for (int i = 0; i < Translation::OpsPerAddress; ++i)
     {
         if (i == 0)
@@ -67,7 +67,7 @@ TEST(Translation, OpsToAddressList)
         }
     }
     Address::AddressType address = Translation::OpsToAddress(ops, 0);
-    List<Op::OpType> newOps = Translation::AddressToOps(address);
+    List<Op::Type> newOps = Translation::AddressToOps(address);
     EXPECT_EQ(memcmp(newOps.GetArray(), ops.GetArray(), sizeof(address)), 0);
 }
 
@@ -75,7 +75,7 @@ TEST(Translation, OpsToAddressList)
 TEST(Translation, AddressToOpsZero)
 {
     Address::AddressType address = 0;
-    const List<Op::OpType> ops = Translation::AddressToOps(address);
+    const List<Op::Type> ops = Translation::AddressToOps(address);
     for (int i = 0; i < Translation::OpsPerAddress; ++i)
     {
         EXPECT_EQ(ops[i], 0);
@@ -88,10 +88,10 @@ TEST(Translation, AddressToOpsMaxValue)
     Address::AddressType address = 0;
     address = ~address;
 
-    Op::OpType maxValueOpType = 0;
+    Op::Type maxValueOpType = 0;
     maxValueOpType = ~maxValueOpType;
 
-    const List<Op::OpType> ops = Translation::AddressToOps(address);
+    const List<Op::Type> ops = Translation::AddressToOps(address);
     for (int i = 0; i < Translation::OpsPerAddress; ++i)
     {
         EXPECT_EQ(ops[i], maxValueOpType);

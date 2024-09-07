@@ -10,12 +10,12 @@ namespace Noble::Core
         frameID = NextFrameID++;
     }
 
-    void Frame::WriteOp(const Op::OpType &op)
+    void Frame::WriteOp(const Op::Type &op)
     {
         ops.Add(op);
     }
 
-    Op::OpType Frame::ReadOp(const Address::AddressType& address)
+    Op::Type Frame::ReadOp(const Address::AddressType& address)
     {
         return ops[address];
     }
@@ -36,12 +36,17 @@ namespace Noble::Core
         return constants.Count() - 1;
     }
 
+    void Frame::WriteConstant(ValueType value)
+    {
+
+    }
+
     const ValueType& Frame::ReadConstant(const Address::AddressType address) const
     {
         return constants[address];
     }
 
-    const List<Op::OpType> &Frame::GetOps() const
+    const List<Op::Type> &Frame::GetOps() const
     {
         return ops;
     }

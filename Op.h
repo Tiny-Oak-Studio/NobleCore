@@ -10,10 +10,10 @@ namespace Noble::Core
     {
     public:
         /// @brief Ops are the basic operation type of the NobleVM.
-        typedef uint8_t OpType;
+        typedef uint8_t Type;
 
         /// @brief All operations codes supported by the NobleVM.
-        enum Code : OpType
+        enum Code : Type
         {
             Add = 0,
             Constant,
@@ -24,7 +24,8 @@ namespace Noble::Core
             Negate,
             Not,
             Return,
-            Subtract, 
+            ShortConstant,
+            Subtract,
         };
     };
 }
