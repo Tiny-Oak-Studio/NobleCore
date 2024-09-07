@@ -41,12 +41,7 @@ namespace Noble::Core
         return constants[address];
     }
 
-    const Op::OpType* Frame::GetOps() const
-    {
-        return ops.GetArray();
-    }
-
-    const List<Op::OpType> &Frame::GetOpsList() const
+    const List<Op::OpType> &Frame::GetOps() const
     {
         return ops;
     }
