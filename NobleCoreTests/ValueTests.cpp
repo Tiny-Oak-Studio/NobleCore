@@ -1,9 +1,10 @@
 #include "gtest/gtest.h"
 #include "../Value.h"
+#include "../cmake-build-debug/_deps/googletest-src/googlemock/include/gmock/gmock-matchers.h"
 
 using namespace Noble::Core::Runtime;
 
-TEST(Value, ValueSize)
+TEST(Value, TargetSizes)
 {
 #ifdef SET_VALUE_64
     // Require value to be 64 bits
@@ -12,6 +13,7 @@ TEST(Value, ValueSize)
     // Require value to be 32 bits
     EXPECT_EQ(4, sizeof(ValueType));
 #endif
+    EXPECT_EQ(sizeof(ValueType), sizeof(FloatType));
 }
 
 TEST(Value, FloatToValue)
