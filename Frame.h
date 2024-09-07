@@ -37,7 +37,10 @@ namespace Noble::Core
         const ValueType& ReadConstant(Address::AddressType address) const;
 
         /// @brief Returns a pointer to the start of this frame's op-array
-        const Op::OpType* GetOps() const;
+        [[deprecated]] const Op::OpType* GetOps() const;
+
+        /// @brief Returns a const-ref to the ops list
+        const List<Op::OpType>& GetOpsList() const;
     protected:
         /// @brief Internal variable for keeping track of how many Frames have been created.
         static uint32_t NextFrameID;

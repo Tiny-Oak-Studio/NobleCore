@@ -40,5 +40,4 @@ namespace Noble::Core::Runtime
     {
         return value == TrueValue || value == FalseValue;
     }
-
 }

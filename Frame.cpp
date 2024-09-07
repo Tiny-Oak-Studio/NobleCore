@@ -45,4 +45,9 @@ namespace Noble::Core
     {
         return ops.GetArray();
     }
+
+    const List<Op::OpType> &Frame::GetOpsList() const
+    {
+        return ops;
+    }
 }
