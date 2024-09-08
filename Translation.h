@@ -13,16 +13,16 @@ namespace Noble::Core
     {
     public:
         /// @brief Compile-time constant for converting Ops and Addresses.
-        static constexpr uint8_t OpsPerAddress = sizeof (Address::AddressType) / sizeof (Op::Type);
+        static constexpr uint8_t OpsPerAddress = sizeof (Address::Single) / sizeof (Op::Type);
 
         /**
-         * @brief Converts OpTypes to an AddressType
-         * @param ops The OpTypes to convert to an AddressType
-         * @return An AddressType created from the bits of the provided OpTypes
+         * @brief Converts OpTypes to a Single
+         * @param ops The OpTypes to convert to a Single
+         * @return A Single created from the bits of the provided OpTypes
          *
-         * Type-puns the bytes from the given OpTypes into an AddressType.
+         * Type-puns the bytes from the given OpTypes into a Single.
          **/
-        static Address::AddressType OpsToAddress(Op::Type ops[OpsPerAddress]);
+        static Address::Single OpsToAddress(Op::Type ops[OpsPerAddress]);
 
         /**
          * @brief Reads an address from given list at the specified index
@@ -30,14 +30,14 @@ namespace Noble::Core
          * @param index The element index to read at
          * @return The address created from the bits starting in the list at the given index
          */
-        static Address::AddressType OpsToAddress(const List<Op::Type>& list, Address::AddressType index);
+        static Address::Single OpsToAddress(const List<Op::Type>& list, Address::Single index);
 
         /**
-         * @brief Converts an AddressType to a list of OpTypes
+         * @brief Converts a Single address to a list of OpTypes
          * @param address The address to be converted
          * @return A list of OpTypes containing the bits of the given address
          */
-        static List<Op::Type> AddressToOps(const Address::AddressType& address);
+        static List<Op::Type> AddressToOps(const Address::Single& address);
     };
 }
 

@@ -13,7 +13,7 @@ TEST(Translation, OpsToAddressZeroes)
     {
         op = 0;
     }
-    Address::AddressType address = 0;
+    Address::Single address = 0;
     EXPECT_EQ(Translation::OpsToAddress(ops), address);
 }
 
@@ -26,7 +26,7 @@ TEST(Translation, OpsToAddressMaxValue)
         op = 0;
         op = ~op;
     }
-    Address::AddressType address = 0;
+    Address::Single address = 0;
     address = ~address;
     EXPECT_EQ(Translation::OpsToAddress(ops), address);
 }
@@ -46,7 +46,7 @@ TEST(Translation, OpsToAddressRoundTrip)
             ops[i] = 75;
         }
     }
-    const Address::AddressType address = Translation::OpsToAddress(ops);
+    const Address::Single address = Translation::OpsToAddress(ops);
     List<Op::Type> newOps = Translation::AddressToOps(address);
     EXPECT_EQ(memcmp(newOps.GetArray(), ops, Translation::OpsPerAddress), 0);
 }
@@ -66,7 +66,7 @@ TEST(Translation, OpsToAddressList)
             ops[i] = 75;
         }
     }
-    Address::AddressType address = Translation::OpsToAddress(ops, 0);
+    Address::Single address = Translation::OpsToAddress(ops, 0);
     List<Op::Type> newOps = Translation::AddressToOps(address);
     EXPECT_EQ(memcmp(newOps.GetArray(), ops.GetArray(), sizeof(address)), 0);
 }
@@ -74,7 +74,7 @@ TEST(Translation, OpsToAddressList)
 /// @brief Tests that a zero-address correctly translates to ops
 TEST(Translation, AddressToOpsZero)
 {
-    Address::AddressType address = 0;
+    Address::Single address = 0;
     const List<Op::Type> ops = Translation::AddressToOps(address);
     for (int i = 0; i < Translation::OpsPerAddress; ++i)
     {
@@ -85,7 +85,7 @@ TEST(Translation, AddressToOpsZero)
 /// @brief Tests that a max-value address correctly translates to ops
 TEST(Translation, AddressToOpsMaxValue)
 {
-    Address::AddressType address = 0;
+    Address::Single address = 0;
     address = ~address;
 
     Op::Type maxValueOpType = 0;

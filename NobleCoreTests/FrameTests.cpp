@@ -15,7 +15,7 @@ TEST(Frame, WriteReadOneOp)
 /// @brief Writes one address, then reads it and makes sure they match
 TEST(Frame, WriteReadOneAddress)
 {
-    constexpr Address::AddressType address = 12313;
+    constexpr Address::Single address = 12313;
     Frame frame;
     frame.WriteAddress(address);
     EXPECT_EQ(frame.ReadAddress(0), address);
@@ -25,7 +25,7 @@ TEST(Frame, WriteReadOneAddress)
 TEST(Frame, WriteReadOneOpOneAddress)
 {
     constexpr Op::Type op = 123;
-    constexpr Address::AddressType address = 12313;
+    constexpr Address::Single address = 12313;
 
     Frame frame;
     frame.WriteOp(op);
@@ -38,19 +38,19 @@ TEST(Frame, WriteReadOneOpOneAddress)
 TEST(Frame, WriteReadOneHundredOpsAndAddresses)
 {
     Frame frame;
-    for (Address::AddressType i = 0; i < 100; ++i)
+    for (Address::Single i = 0; i < 100; ++i)
     {
         const Op::Type op = i;
-        const Address::AddressType address = 12313 + i;
+        const Address::Single address = 12313 + i;
 
         frame.WriteOp(op);
         frame.WriteAddress(address);
     }
 
-    for (Address::AddressType i = 0; i < 100; ++i)
+    for (Address::Single i = 0; i < 100; ++i)
     {
         const Op::Type op = i;
-        const Address::AddressType address = 12313 + i;
+        const Address::Single address = 12313 + i;
 
         EXPECT_EQ(frame.ReadAddress(i * (sizeof(Op::Type) + Translation::OpsPerAddress) + 1), address);
         EXPECT_EQ(frame.ReadOp(i * (sizeof(Op::Type) + Translation::OpsPerAddress)), op);
@@ -61,7 +61,7 @@ TEST(Frame, WriteReadOneConstant)
 {
     Frame frame;
     const ValueType testValue = ToValue(198.87f);
-    const Address::AddressType address = frame.AddConstant(testValue);
+    const Address::Single address = frame.AddConstant(testValue);
     EXPECT_EQ(frame.ReadConstant(address), testValue);
 }
 
@@ -69,11 +69,11 @@ TEST(Frame, WriteReadOneHundredConstants)
 {
     Frame frame;
     const ValueType RandomOffset = ToValue(120.543f);
-    for (Address::AddressType i = 0; i < 100; ++i)
+    for (Address::Single i = 0; i < 100; ++i)
     {
         frame.AddConstant(static_cast<float>(i) + RandomOffset);
     }
-    for (Address::AddressType i = 0; i < 100; ++i)
+    for (Address::Single i = 0; i < 100; ++i)
     {
         EXPECT_EQ(frame.ReadConstant(i), static_cast<float>(i) + RandomOffset);
     }

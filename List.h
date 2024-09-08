@@ -25,22 +25,22 @@ namespace Noble::Core
         void Add(const List& list);
 
         /// @brief Resize the underlying array to specified size
-        void Resize(Address::AddressType size);
+        void Resize(Address::Single size);
 
         /// @brief Removes the most recently added element
         T Pop();
 
         /// @brief Get a copy of an indexed element of the array
-        const T& operator[](Address::AddressType index) const;
+        const T& operator[](Address::Single index) const;
 
         /// @brief Access an indexed element of the array
-        T& operator[](Address::AddressType index);
+        T& operator[](Address::Single index);
 
         /// @brief Returns the capacity of the array
-        Address::AddressType Capacity() const;
+        Address::Single Capacity() const;
 
         /// @brief Returns the number of elements in the array
-        Address::AddressType Count() const;
+        Address::Single Count() const;
 
         /// @brief Get a pointer to the underlying array
         T* GetArray();
@@ -49,19 +49,19 @@ namespace Noble::Core
         const T* GetArray() const;
     protected:
         /// @brief The number of elements initially allocated to the array
-        static constexpr Address::AddressType InitialArraySize = 2;
+        static constexpr Address::Single InitialArraySize = 2;
 
         /// @brief The factor to grow the array by when a reallocation occurs
-        static constexpr Address::AddressType GrowthFactor = 2;
+        static constexpr Address::Single GrowthFactor = 2;
 
         /// @brief The underlying array
         T* array = nullptr;
 
         /// @brief The current capacity of the array.
-        Address::AddressType capacity = 0;
+        Address::Single capacity = 0;
 
         /// @brief Number of elements currently in the array.
-        Address::AddressType count = 0;
+        Address::Single count = 0;
     };
 
     template<typename T>
@@ -82,7 +82,7 @@ namespace Noble::Core
     {
         if (count >= capacity)
         {
-            const Address::AddressType newCapacity = capacity * GrowthFactor;
+            const Address::Single newCapacity = capacity * GrowthFactor;
             T* tempArray = new T[newCapacity];
             memcpy(tempArray, array, count * sizeof(T));
             delete [] array;
@@ -95,14 +95,14 @@ namespace Noble::Core
     template<typename T>
     void List<T>::Add(const List& list)
     {
-        for (Address::AddressType i = 0; i < list.count; ++i)
+        for (Address::Single i = 0; i < list.count; ++i)
         {
             this->Add(list[i]);
         }
     }
 
     template<typename T>
-    void List<T>::Resize(const Address::AddressType size)
+    void List<T>::Resize(const Address::Single size)
     {
         delete [] array;
         array = new T[size];
@@ -118,25 +118,25 @@ namespace Noble::Core
     }
 
     template<typename T>
-    const T& List<T>::operator[](Address::AddressType index) const
+    const T& List<T>::operator[](Address::Single index) const
     {
         return array[index];
     }
 
     template<typename T>
-    T& List<T>::operator[](Address::AddressType index)
+    T& List<T>::operator[](Address::Single index)
     {
         return array[index];
     }
 
     template<typename T>
-    Address::AddressType List<T>::Capacity() const
+    Address::Single List<T>::Capacity() const
     {
         return capacity;
     }
 
     template<typename T>
-    Address::AddressType List<T>::Count() const
+    Address::Single List<T>::Count() const
     {
         return count;
     }

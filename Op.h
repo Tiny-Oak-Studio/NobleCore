@@ -18,13 +18,15 @@ namespace Noble::Core
             Add = 0,
             Constant,
             Divide,
+            DoubleConstant,
             Greater,
+            HalfConstant,
             Less,
             Multiply,
             Negate,
             Not,
+            QuadConstant,
             Return,
-            ShortConstant,
             Subtract,
         };
     };
