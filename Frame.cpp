@@ -28,29 +28,10 @@ namespace Noble::Core
         return constants.Count() - 1;
     }
 
-    void Frame::WriteConstant(ValueType value)
+    void Frame::WriteConstant(const ValueType value)
     {
-        if (constants.Count() < Address::MaxHalf)
-        {
-            WriteOp(Op::Code::HalfConstant);
-            const Noble::Core::Address::Half addr = constants.Count();
-        }
-        else if (constants.Count() < Address::MaxSingle)
-        {
-            WriteOp(Op::Code::Constant);
-            const Noble::Core::Address::Single addr = constants.Count();
-        }
-        else if (constants.Count() < Address::MaxDouble)
-        {
-            WriteOp(Op::Code::DoubleConstant);
-            const Noble::Core::Address::Double addr = constants.Count();
-        }
-        else
-        {
-            WriteOp(Op::Code::QuadConstant);
-            const Noble::Core::Address::Quad addr = constants.Count();
-        }
-        constants.Add(value);
+        WriteOp(Op::Code::Constant);
+        WriteAddress(AddConstant(value));
     }
 
     const ValueType& Frame::ReadConstant(const Address::Single address) const

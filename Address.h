@@ -14,10 +14,10 @@ namespace Noble::Core::Address
     typedef uint16_t Single;
     typedef uint8_t Half;
 
-    constexpr Quad MaxQuad =     ~static_cast<Quad>(0);
-    constexpr Double MaxDouble = ~static_cast<Double>(0);
-    constexpr Single MaxSingle = ~static_cast<Single>(0);
-    constexpr Half MaxHalf =     ~static_cast<Half>(0);
+    constexpr Quad MaxQuad =     -1;
+    constexpr Double MaxDouble = -1;
+    constexpr Single MaxSingle = -1;
+    constexpr Half MaxHalf =     -1;
 }
 
 #endif //NOBLE_CORE_ADDRESS_H_INCLUDED
