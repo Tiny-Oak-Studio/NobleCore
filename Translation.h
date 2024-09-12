@@ -13,7 +13,7 @@ namespace Noble::Core
     {
     public:
         /// @brief Compile-time constant for converting Ops and Addresses.
-        static constexpr uint8_t OpsPerAddress = sizeof (Address::Single) / sizeof (Op::Type);
+        static constexpr uint8_t OpsPerAddress = sizeof (Address::Single) / sizeof (Op::Code);
 
         /**
          * @brief Converts OpTypes to a Single
