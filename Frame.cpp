@@ -39,8 +39,8 @@ namespace Noble::Core
         return constants.Count() - 1;
     }
 
-    List<Op::Type> Frame::GetOps() const
+    Address::Single Frame::NumOps() const
     {
-        return ops;
+        return ops.Count();
     }
 }

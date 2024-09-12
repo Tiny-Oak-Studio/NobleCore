@@ -36,8 +36,8 @@ namespace Noble::Core
         /// @brief Adds a constant to this frame
         Address::Single AddConstant(ValueType value);
 
-        /// @brief Returns a const-ref to the ops list
-        [[nodiscard]] List<Op::Type> GetOps() const;
+        /// @brief Returns the number of ops currently stored in the ops list
+        [[nodiscard]] Address::Single NumOps() const;
     protected:
         /// @brief Storage for reading/writing ops in the compiler
         List<Op::Type> ops;
