@@ -39,7 +39,7 @@ namespace Noble::Core
         return constants.Count() - 1;
     }
 
-    const List<Op::Type> &Frame::GetOps() const
+    List<Op::Type> Frame::GetOps() const
     {
         return ops;
     }

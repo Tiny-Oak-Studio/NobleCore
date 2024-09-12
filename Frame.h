@@ -37,7 +37,7 @@ namespace Noble::Core
         Address::Single AddConstant(ValueType value);
 
         /// @brief Returns a const-ref to the ops list
-        [[nodiscard]] const List<Op::Type>& GetOps() const;
+        [[nodiscard]] List<Op::Type> GetOps() const;
     protected:
         /// @brief Storage for reading/writing ops in the compiler
         List<Op::Type> ops;
