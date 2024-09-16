@@ -18,13 +18,16 @@ namespace Noble::Core
             Add = 0,
             Constant,
             Divide,
+            False,
             Greater,
             Less,
             Multiply,
             Negate,
             Not,
+            Null,
             Return,
             Subtract,
+            True
         };
     };
 }
