@@ -30,11 +30,17 @@ namespace Noble::Core
         /// @brief Removes the most recently added element
         T Pop();
 
-        /// @brief Get a copy of an indexed element of the array
+        /// @brief Get a const ref of an indexed element of the array
         const T& operator[](Address::Single index) const;
 
-        /// @brief Access an indexed element of the array
+        /// @brief Get a ref to an indexed element of the array
         T& operator[](Address::Single index);
+
+        /// @brief Get a const ref of an element offset from back
+        const T& Peek(Address::Single offset) const;
+
+        /// @brief Get ref of an element offset from back
+        T& Peek(Address::Single offset);
 
         /// @brief Returns the capacity of the array
         Address::Single Capacity() const;
@@ -64,20 +70,20 @@ namespace Noble::Core
         Address::Single count = 0;
     };
 
-    template<typename T>
+    template <typename T>
     List<T>::List()
     {
         array = new T[InitialArraySize];
         capacity = InitialArraySize;
     }
 
-    template<typename T>
+    template <typename T>
     List<T>::~List()
     {
         delete [] array;
     }
 
-    template<typename T>
+    template <typename T>
     void List<T>::Add(T element)
     {
         if (count >= capacity)
@@ -92,7 +98,7 @@ namespace Noble::Core
         array[count++] = element;
     }
 
-    template<typename T>
+    template <typename T>
     void List<T>::Add(const List& list)
     {
         for (Address::Single i = 0; i < list.count; ++i)
@@ -101,7 +107,7 @@ namespace Noble::Core
         }
     }
 
-    template<typename T>
+    template <typename T>
     void List<T>::Resize(const Address::Single size)
     {
         delete [] array;
@@ -111,43 +117,55 @@ namespace Noble::Core
         memset(array, 0, count * sizeof(T)); //Zero-write the empty elements
     }
 
-    template<typename T>
+    template <typename T>
     T List<T>::Pop()
     {
         return array[--count];
     }
 
-    template<typename T>
+    template <typename T>
     const T& List<T>::operator[](Address::Single index) const
     {
         return array[index];
     }
 
-    template<typename T>
+    template <typename T>
     T& List<T>::operator[](Address::Single index)
     {
         return array[index];
     }
 
-    template<typename T>
+    template <typename T>
+    const T &List<T>::Peek(const Address::Single offset) const
+    {
+        return array[count - offset - 1];
+    }
+
+    template <typename T>
+    T& List<T>::Peek(const Address::Single offset)
+    {
+        return array[count - offset - 1];
+    }
+
+    template <typename T>
     Address::Single List<T>::Capacity() const
     {
         return capacity;
     }
 
-    template<typename T>
+    template <typename T>
     Address::Single List<T>::Count() const
     {
         return count;
     }
 
-    template<typename T>
+    template <typename T>
     T* List<T>::GetArray()
     {
         return array;
     }
 
-    template<typename T>
+    template <typename T>
     const T* List<T>::GetArray() const
     {
         return array;
