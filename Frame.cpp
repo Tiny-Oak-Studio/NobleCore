@@ -43,4 +43,14 @@ namespace Noble::Core
     {
         return ops.Count();
     }
+
+    const List<Op::Type>& Frame::GetOps() const
+    {
+        return ops;
+    }
+
+    const List<ValueType>& Frame::GetConstants() const
+    {
+        return constants;
+    }
 }

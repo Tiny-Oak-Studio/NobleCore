@@ -38,6 +38,12 @@ namespace Noble::Core
 
         /// @brief Returns the number of ops currently stored in the ops list
         [[nodiscard]] Address::Single NumOps() const;
+
+        /// @brief Get a const ref to the ops array
+        [[nodiscard]] const List<Op::Type>& GetOps() const;
+
+        /// @brief Get a const ref to the constants array
+        [[nodiscard]] const List<ValueType>& GetConstants() const;
     protected:
         /// @brief Storage for reading/writing ops in the compiler
         List<Op::Type> ops;
