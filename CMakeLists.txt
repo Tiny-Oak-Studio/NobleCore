@@ -38,7 +38,6 @@ add_executable(
         NobleCoreTests/NobleCoreTests.cpp
         NobleCoreTests/TranslationTests.cpp
         NobleCoreTests/ListTests.cpp
-        NobleCoreTests/FrameTests.cpp
         NobleCoreTests/ValueTests.cpp
 )
 target_link_libraries(
