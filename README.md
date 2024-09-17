@@ -24,4 +24,4 @@ Noble _assumes_ a 16-bit address space, but can be configured to target a 32 or 
 The Noble VM is a stack-based RISC-architecture machine that interprets and executes NAL sequences. Each NAL instruction takes exactly one VM instruction-cycle to execute.
 
 # Documentation
-Documentation is automatically deployed from the ```main``` branch and is found (here)[https://github.com/Tiny-Oak-Studio/NobleCore].
+Documentation is automatically deployed from the ```main``` branch and is found [here](https://github.com/Tiny-Oak-Studio/NobleCore).
