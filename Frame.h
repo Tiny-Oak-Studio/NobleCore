@@ -18,13 +18,19 @@ namespace Noble::Core
          */
         ~Frame();
 
-        /// @brief Array of Noble Assembly Ops to be executed by a VM.
+        /**
+         * @brief Array of Noble Assembly Ops to be executed by a VM.
+         */
         Op::Type* ops = nullptr;
-        /// @brief Number of ops in the array.
+
+        /// @brief Number of ops stored in the array.
         Address::Single numOps = 0;
 
-        /// @brief Array of constants used be the NAS in this Frame.
+        /**
+         * @brief Array of constants used be the NAS in this Frame.
+         */
         Runtime::ValueType* constants = nullptr;
+
         /// @brief Number of constants stored in the array.
         Address::Single numConstants = 0;
     };
