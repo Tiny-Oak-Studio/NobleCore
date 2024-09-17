@@ -20,8 +20,5 @@ Noble Assembly Language operates using an 8-bit instruction set. This is designe
 **16-Bit Address Space**
 Noble _assumes_ a 16-bit address space, but can be configured to target a 32 or 64-bit address space using the ```SET_ADDRESS_32``` or ```SET_ADDRESS_64``` compiler flags. It is important to note that compiling with these flags set will result in different NAL sequences for each target address space, so care should be taken to set the appropriate flags for the target environment.
 
-## The Noble VM
-The Noble VM is a stack-based RISC-architecture machine that interprets and executes NAL sequences. Each NAL instruction takes exactly one VM instruction-cycle to execute.
-
 # Documentation
 Documentation is automatically deployed from the ```main``` branch and is found [here](https://github.com/Tiny-Oak-Studio/NobleCore).
