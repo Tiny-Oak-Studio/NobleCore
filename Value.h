@@ -21,19 +21,18 @@ namespace Noble::Core::Runtime
     typedef float FloatType;
     constexpr ValueType QNaN = 0x7fe00000;
     constexpr ValueType SignBit = 0x80000000;
+#elif SET_VALUE_64
+    typedef uint64_t ValueType;
+    typedef std::float64_t FloatType;
+    constexpr ValueType QNaN = 0x7ffc000000000000;
+    constexpr ValueType SignBit = 0x8000000000000000;
 #else
-    #ifdef SET_VALUE_64
-        typedef uint64_t ValueType;
-        typedef std::float64_t FloatType;
-        constexpr ValueType QNaN = 0x7ffc000000000000;
-        constexpr ValueType SignBit = 0x8000000000000000;
-    #else
-        typedef uint32_t ValueType;
-        typedef std::float32_t FloatType;
-        constexpr ValueType QNaN = 0x7fe00000;
-        constexpr ValueType SignBit = 0x80000000;
-    #endif
+    typedef uint32_t ValueType;
+    typedef std::float32_t FloatType;
+    constexpr ValueType QNaN = 0x7fe00000;
+    constexpr ValueType SignBit = 0x80000000;
 #endif
+
     /**
      * @brief Defines the bits used in a QNaN to represent a null value.
      */

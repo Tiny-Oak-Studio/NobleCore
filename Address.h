@@ -9,10 +9,12 @@
  */
 namespace Noble::Core::Address
 {
-#ifdef SET_VALUE_64
+#ifdef SET_ADDRESS_64
     typedef uint64_t Single;
-#else
+#elif SET_ADDRESS_32
     typedef uint32_t Single;
+#else
+    typedef uint16_t Single;
 #endif
 }
 
