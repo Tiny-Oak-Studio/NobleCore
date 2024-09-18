@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: mattnotmitt/doxygen-action@v1.9.5
         with:
-            doxyfile-path: '${{ GITHUB_WORKSPACE }}/Docs'
+            doxyfile-path: '${{ github.workspace }}/Docs'
   deploy:
     runs-on: ubuntu-latest
     # Add a dependency to the build job
@@ -32,5 +32,5 @@ jobs:
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ GITHUB_WORKSPACE }}/Docs
+          publish_dir: ${{ github.workspace }}/Docs
         
