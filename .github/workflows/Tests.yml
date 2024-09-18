@@ -18,6 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - uses: actions/checkout@v4
     - uses: aminya/setup-cpp@v1
       with:
           compiler: gcc-13
@@ -25,12 +26,11 @@ jobs:
           ninja: false
           vcpkg: false
           cppcheck: false
-    - uses: actions/checkout@v4
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_CXX_STANDARD=23
+      # run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCMAKE_CXX_STANDARD=23
 
     - name: Build
       # Build your program with the given configuration
