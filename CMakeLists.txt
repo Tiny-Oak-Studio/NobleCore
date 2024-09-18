@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 project(NobleCore)
 
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# set(CMAKE_CXX_STANDARD 23)
+# set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Uncomment one of the below line to enable 32 or 64-bit addresses.
 # add_compile_definitions(SET_ADDRESS_64)
@@ -41,6 +41,9 @@ add_executable(
         NobleCoreTests/ListTests.cpp
         NobleCoreTests/ValueTests.cpp
 )
+
+target_compile_features(NobleCoreTests PUBLIC cxx_std_23)
+
 target_link_libraries(
         NobleCoreTests
         GTest::gtest_main
