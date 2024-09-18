@@ -14,19 +14,18 @@ jobs:
   Test:
     runs-on: ${{ matrix.os }}
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         os:
           - windows-2022
-          - ubuntu-24.04
         compiler:
-          - gcc-13.1
+          - gcc-13
           # you can specify the version after `-` like `llvm-18`.
         include:
           - os: "windows-2022"
-            compiler: "msvc"
+            compiler: "gcc"
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Cache
         uses: actions/cache@v3
         with:
