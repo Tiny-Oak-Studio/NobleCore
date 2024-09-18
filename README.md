@@ -1,3 +1,5 @@
+[![Full Pipeline Tests](https://github.com/Tiny-Oak-Studio/NobleCore/actions/workflows/Tests.yml/badge.svg?branch=main)](https://github.com/Tiny-Oak-Studio/NobleCore/actions/workflows/Tests.yml)
+
 # Noble: An ATMega Game Console
 **TLDR:** Noble is a language implementation and VM platform for game-development on Atmel ATMega chips.
 
