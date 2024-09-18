@@ -18,6 +18,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Setup Cpp
+      uses: aminya/setup-cpp@v1
+      with:
+        compiler: ${{ matrix.compiler }}
+        vcvarsall: ${{ contains(matrix.os, 'windows') }}
+        cmake: true
+        ninja: true
+        vcpkg: true
+        cppcheck: true
+        clang-tidy: true # instead of `true`, which chooses the default version, you can pass a specific version.
     - uses: jwlawson/actions-setup-cmake@v2
     - uses: actions/checkout@v4
 
