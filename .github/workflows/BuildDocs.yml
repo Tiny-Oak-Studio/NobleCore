@@ -30,7 +30,6 @@ jobs:
       id-token: write   # to verify the deployment originates from an appropriate source
     
     steps:
-      - name: Deploy
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
