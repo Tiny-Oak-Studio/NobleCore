@@ -1,4 +1,4 @@
-[![Full Pipeline Tests](https://github.com/Tiny-Oak-Studio/NobleCore/actions/workflows/Tests.yml/badge.svg?branch=main)](https://github.com/Tiny-Oak-Studio/NobleCore/actions/workflows/Tests.yml) [![Documentation Deployed](https://github.com/Tiny-Oak-Studio/NobleCore/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Tiny-Oak-Studio/NobleCore/actions/workflows/pages/pages-build-deployment)
+[![Full Pipeline Tests](https://github.com/Tiny-Oak-Studio/NobleCore/actions/workflows/Tests.yml/badge.svg?branch=main)](https://github.com/Tiny-Oak-Studio/NobleCore/actions/workflows/Tests.yml) [![Documentation Deployed](https://github.com/Tiny-Oak-Studio/NobleCore/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Tiny-Oak-Studio/NobleCore/actions/workflows/pages/pages-build-deployment) [![CodeQL Advanced](https://github.com/Tiny-Oak-Studio/NobleCore/actions/workflows/codeql.yml/badge.svg)](https://github.com/Tiny-Oak-Studio/NobleCore/actions/workflows/codeql.yml)
 
 # Noble: An ATMega Game Console
 **TLDR:** Noble is a language implementation and VM platform for game-development on Atmel ATMega chips.
