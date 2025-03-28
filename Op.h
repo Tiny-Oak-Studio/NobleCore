@@ -29,6 +29,7 @@ namespace Noble::Core
             Not,
             NotEqual,
             Null,
+            Print,
             Return,
             Subtract,
             True
