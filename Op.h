@@ -29,6 +29,8 @@ namespace Noble::Core
             Not,
             NotEqual,
             Null,
+            Pop,
+            PopN,
             Return,
             Subtract,
             True
