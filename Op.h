@@ -17,9 +17,11 @@ namespace Noble::Core
         {
             Add = 0,
             Constant,
+            DefineGlobal,
             Divide,
             Equal,
             False,
+            GetGlobal,
             Greater,
             GreaterEqual,
             Less,
@@ -29,9 +31,9 @@ namespace Noble::Core
             Not,
             NotEqual,
             Null,
-            Pop,
-            PopN,
+            Print,
             Return,
+            SetGlobal,
             Subtract,
             True
         };
