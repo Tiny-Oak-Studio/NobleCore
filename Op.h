@@ -22,6 +22,7 @@ namespace Noble::Core
             Equal,
             False,
             GetGlobal,
+            GetLocal,
             Greater,
             GreaterEqual,
             Less,
@@ -34,6 +35,7 @@ namespace Noble::Core
             Print,
             Return,
             SetGlobal,
+            SetLocal,
             Subtract,
             True
         };
