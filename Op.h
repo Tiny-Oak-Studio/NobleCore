@@ -32,6 +32,8 @@ namespace Noble::Core
             Not,
             NotEqual,
             Null,
+            Pop,
+            PopN,
             Print,
             Return,
             SetGlobal,
