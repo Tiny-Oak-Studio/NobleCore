@@ -30,6 +30,7 @@ namespace Noble::Core
             GreaterEqual,
             Jump,
             JumpIfFalse,
+            JumpIfTrue,
             Less,
             LessEqual,
             LogicalAnd,
