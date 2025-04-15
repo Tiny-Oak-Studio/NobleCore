@@ -35,6 +35,7 @@ namespace Noble::Core
             LessEqual,
             LogicalAnd,
             LogicalOr,
+            Loop,
             Multiply,
             Negate,
             Not,
