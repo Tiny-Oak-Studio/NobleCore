@@ -25,6 +25,8 @@ namespace Noble::Core
             GetLocal,
             Greater,
             GreaterEqual,
+            Jump,
+            JumpIfFalse,
             Less,
             LessEqual,
             Multiply,
