@@ -16,9 +16,6 @@ namespace Noble::Core
         enum Code : Type
         {
             Add = 0,
-            BitwiseAnd,
-            BitwiseOr,
-            BitwiseXor,
             Constant,
             DefineGlobal,
             Divide,
@@ -33,8 +30,6 @@ namespace Noble::Core
             JumpIfTrue,
             Less,
             LessEqual,
-            LogicalAnd,
-            LogicalOr,
             Loop,
             Multiply,
             Negate,
