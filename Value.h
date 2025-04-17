@@ -86,6 +86,7 @@ namespace Noble::Core::Runtime
     bool IsNull(ValueType value);
     bool IsFloat(ValueType value);
     bool IsBool(ValueType value);
+    bool IsFalsey(ValueType value);
 }
 
 #endif //VALUE_H_INCLUDED
