@@ -41,7 +41,7 @@ namespace Noble::Core::Runtime
         return value == TrueValue || value == FalseValue;
     }
 
-    bool IsFalsey(ValueType value)
+    bool IsFalsey(const ValueType value)
     {
         return IsNull(value) or (IsBool(value) and !ToBool(value));
     }
