@@ -41,6 +41,8 @@ add_executable(
         NobleCoreTests/TranslationTests.cpp
         NobleCoreTests/ListTests.cpp
         NobleCoreTests/ValueTests.cpp
+        Debug.h
+        Debug.cpp
 )
 
 target_compile_features(NobleCoreTests PUBLIC cxx_std_23)
