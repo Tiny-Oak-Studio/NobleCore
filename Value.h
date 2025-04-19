@@ -80,6 +80,11 @@ namespace Noble::Core::Runtime
      */
     ValueType ToValue(bool data);
 
+    /**
+     * @brief Returns the ValueType equivalent of the given object pointer.
+     * @param object The pointer to convert to ValueType.
+     * @return A ValueType representing the given object pointer.
+     */
     ValueType ToValue(struct Object* object);
 
     FloatType ToFloat(ValueType value);
