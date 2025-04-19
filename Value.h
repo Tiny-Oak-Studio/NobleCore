@@ -5,6 +5,8 @@
  * Can switch between 64-bit and 32-bit values by defining SET_VALUE_64
  */
 
+#include "Objects/Object.h"
+
 #ifdef __AVR__
 #include <string.h> //For memcpy for Arduino
 #include <stdint.h> //For uint32_t for Arduino
@@ -94,7 +96,9 @@ namespace Noble::Core::Runtime
     bool IsNull(ValueType value);
     bool IsFloat(ValueType value);
     bool IsBool(ValueType value);
+    bool IsString(ValueType value);
     bool IsObject(ValueType value);
+    bool IsObjectType(ValueType value, Object::Type type);
 
     bool IsFalsey(ValueType value);
     bool IsTruthy(ValueType value);

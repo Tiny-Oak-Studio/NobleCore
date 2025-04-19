@@ -43,6 +43,10 @@ add_executable(
         NobleCoreTests/ValueTests.cpp
         Debug.h
         Debug.cpp
+        Objects/Object.cpp
+        Objects/Object.h
+        Objects/ObjectString.cpp
+        Objects/ObjectString.h
 )
 
 target_compile_features(NobleCoreTests PUBLIC cxx_std_23)

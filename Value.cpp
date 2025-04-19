@@ -51,10 +51,21 @@ namespace Noble::Core::Runtime
         return value == TrueValue || value == FalseValue;
     }
 
+    bool IsString(const ValueType value)
+    {
+        return IsObjectType(value, Object::Type::String);
+    }
+
     bool IsObject(const ValueType value)
     {
         return (value & (QNaN | SignBit)) == (QNaN | SignBit);
     }
+
+    bool IsObjectType(const ValueType value, const Object::Type type)
+    {
+        return IsObject(value) and ToObject(value)->type == type;
+    }
+
 
     bool IsFalsey(const ValueType value)
     {
