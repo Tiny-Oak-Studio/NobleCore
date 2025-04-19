@@ -6,6 +6,7 @@
  */
 
 #include "Objects/Object.h"
+#include "Objects/ObjectString.h"
 
 #ifdef __AVR__
 #include <string.h> //For memcpy for Arduino
@@ -87,11 +88,13 @@ namespace Noble::Core::Runtime
      * @param object The pointer to convert to ValueType.
      * @return A ValueType representing the given object pointer.
      */
-    ValueType ToValue(struct Object* object);
+    ValueType ToValue(Object* object);
 
     FloatType ToFloat(ValueType value);
     bool ToBool(ValueType value);
-    struct Object* ToObject(ValueType value);
+    Object* ToObject(ValueType value);
+    ObjectString* ToObjectString(ValueType value);
+    char* ToCharString(ValueType value);
 
     bool IsNull(ValueType value);
     bool IsFloat(ValueType value);
