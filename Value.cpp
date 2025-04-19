@@ -14,6 +14,11 @@ namespace Noble::Core::Runtime
         return data ? TrueValue : FalseValue;
     }
 
+    ValueType ToValue(struct Object* object)
+    {
+        return static_cast<ValueType>(SignBit | QNaN | reinterpret_cast<uintptr_t>(object));
+    }
+
     FloatType ToFloat(const ValueType value)
     {
         FloatType data;
@@ -24,6 +29,11 @@ namespace Noble::Core::Runtime
     bool ToBool(const ValueType value)
     {
         return value == TrueValue;
+    }
+
+    Object* ToObject(const ValueType value)
+    {
+        return reinterpret_cast<Object *>(static_cast<uintptr_t>(value & ~(SignBit | QNaN)));
     }
 
     bool IsNull(const ValueType value)

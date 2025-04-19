@@ -80,8 +80,11 @@ namespace Noble::Core::Runtime
      */
     ValueType ToValue(bool data);
 
+    ValueType ToValue(struct Object* object);
+
     FloatType ToFloat(ValueType value);
     bool ToBool(ValueType value);
+    struct Object* ToObject(ValueType value);
 
     bool IsNull(ValueType value);
     bool IsFloat(ValueType value);
