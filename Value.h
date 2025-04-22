@@ -24,16 +24,19 @@ namespace Noble::Core::Runtime
     typedef float FloatType;
     constexpr ValueType QNaN = 0x7fe00000;
     constexpr ValueType SignBit = 0x80000000;
+    constexpr ValueType CharBit = 0x00100000;
 #elif SET_VALUE_64
     typedef uint64_t ValueType;
     typedef std::float64_t FloatType;
     constexpr ValueType QNaN = 0x7ffc000000000000;
     constexpr ValueType SignBit = 0x8000000000000000;
+    constexpr ValueType CharBit = 0x0002000000000000;
 #else
     typedef uint32_t ValueType;
     typedef std::float32_t FloatType;
     constexpr ValueType QNaN = 0x7fe00000;
     constexpr ValueType SignBit = 0x80000000;
+    constexpr ValueType CharBit = 0x00100000;
 #endif
 
     /**
@@ -84,6 +87,13 @@ namespace Noble::Core::Runtime
     ValueType ToValue(bool data);
 
     /**
+     * @brief Converts a character to a ValueType
+     * @param c The character to convert to a ValueType.
+     * @return The ValueType equivalent to the character c.
+     */
+    ValueType ToChar(char c);
+
+    /**
      * @brief Returns the ValueType equivalent of the given object pointer.
      * @param object The pointer to convert to ValueType.
      * @return A ValueType representing the given object pointer.
@@ -92,6 +102,7 @@ namespace Noble::Core::Runtime
 
     FloatType ToFloat(ValueType value);
     bool ToBool(ValueType value);
+    char ToChar(ValueType value);
     Object* ToObject(ValueType value);
     ObjectString* ToObjectString(ValueType value);
     char* ToCharString(ValueType value);
@@ -99,8 +110,10 @@ namespace Noble::Core::Runtime
     bool IsNull(ValueType value);
     bool IsFloat(ValueType value);
     bool IsBool(ValueType value);
+    bool IsChar(ValueType value);
     bool IsString(ValueType value);
     bool IsObject(ValueType value);
+
     bool IsObjectType(ValueType value, Object::Type type);
 
     bool IsFalsey(ValueType value);
