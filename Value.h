@@ -91,7 +91,7 @@ namespace Noble::Core::Runtime
      * @param c The character to convert to a ValueType.
      * @return The ValueType equivalent to the character c.
      */
-    ValueType ToChar(char c);
+    ValueType ToValue(char c);
 
     /**
      * @brief Returns the ValueType equivalent of the given object pointer.

@@ -14,7 +14,7 @@ namespace Noble::Core::Runtime
         return data ? TrueValue : FalseValue;
     }
 
-    ValueType ToChar(const char c)
+    ValueType ToValue(const char c)
     {
         return QNaN | CharBit | static_cast<ValueType>(c);
     }
