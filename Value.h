@@ -4,7 +4,6 @@
 /**
  * Can switch between 64-bit and 32-bit values by defining SET_VALUE_64
  */
-#define SET_VALUE_64
 
 #include "Objects/Object.h"
 #include "Objects/ObjectString.h"
