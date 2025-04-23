@@ -104,16 +104,12 @@ namespace Noble::Core::Runtime
     bool ToBool(ValueType value);
     char ToChar(ValueType value);
     Object* ToObject(ValueType value);
-    ObjectString* ToObjectString(ValueType value);
-    char* ToCharString(ValueType value);
 
     bool IsNull(ValueType value);
     bool IsFloat(ValueType value);
     bool IsBool(ValueType value);
     bool IsChar(ValueType value);
-    bool IsString(ValueType value);
     bool IsObject(ValueType value);
-
     bool IsObjectType(ValueType value, Object::Type type);
 
     bool IsFalsey(ValueType value);

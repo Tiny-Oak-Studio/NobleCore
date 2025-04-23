@@ -46,16 +46,6 @@ namespace Noble::Core::Runtime
         return reinterpret_cast<Object*>(static_cast<uintptr_t>(value & ~(SignBit | QNaN)));
     }
 
-    ObjectString* ToObjectString(const ValueType value)
-    {
-        return reinterpret_cast<ObjectString*>(ToObject(value));
-    }
-
-    char* ToCharString(const ValueType value)
-    {
-        return ToObjectString(value)->characters;
-    }
-
     bool IsNull(const ValueType value)
     {
         return value == NullValue;
@@ -74,11 +64,6 @@ namespace Noble::Core::Runtime
     bool IsChar(const ValueType value)
     {
         return (value & (QNaN | CharBit)) == (QNaN | CharBit);
-    }
-
-    bool IsString(const ValueType value)
-    {
-        return IsObjectType(value, Object::Type::String);
     }
 
     bool IsObject(const ValueType value)
