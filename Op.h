@@ -17,7 +17,7 @@ namespace Noble::Core
         {
             Add = 0,
             Constant,
-            ConstantMulti,
+            ConstantString,
             DefineGlobal,
             Divide,
             Equal,
