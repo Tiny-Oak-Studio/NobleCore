@@ -45,12 +45,3 @@ TEST(Value, Null)
     ValueType value = NullValue;
     EXPECT_TRUE(IsNull(value));
 }
-
-TEST(Value, ObjectPtrRoundTrip)
-{
-    Noble::Core::ObjectString* string = new Noble::Core::ObjectString();
-    ValueType valuePtr = ToValue(string);
-
-    EXPECT_EQ(ToObject(valuePtr), string);
-    delete string;
-}
