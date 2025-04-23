@@ -19,7 +19,7 @@ namespace Noble::Core::Runtime
         return QNaN | CharBit | static_cast<ValueType>(c);
     }
 
-    ValueType ToValue(const Object* object)
+    ValueType ToValue(Object* object)
     {
         return SignBit | QNaN | static_cast<ValueType>(reinterpret_cast<uintptr_t>(object));
     }
