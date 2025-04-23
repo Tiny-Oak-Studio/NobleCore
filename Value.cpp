@@ -19,9 +19,9 @@ namespace Noble::Core::Runtime
         return QNaN | CharBit | static_cast<ValueType>(c);
     }
 
-    ValueType ToValue(Object* object)
+    ValueType ToValue(const Object* object)
     {
-        return static_cast<ValueType>(SignBit | QNaN | reinterpret_cast<uintptr_t>(object));
+        return SignBit | QNaN | static_cast<ValueType>(reinterpret_cast<uintptr_t>(object));
     }
 
     FloatType ToFloat(const ValueType value)
