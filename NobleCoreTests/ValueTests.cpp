@@ -40,6 +40,14 @@ TEST(Value, BoolRoundTrip)
     EXPECT_FALSE(ToBool(value));
 }
 
+TEST(Value, CharRoundTrip)
+{
+    char c = 'c';
+    ValueType value = ToValue(c);
+    EXPECT_TRUE(IsChar(value));
+    EXPECT_EQ(ToChar(value), 'c');
+}
+
 TEST(Value, Null)
 {
     ValueType value = NullValue;
