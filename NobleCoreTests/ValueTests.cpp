@@ -42,10 +42,10 @@ TEST(Value, BoolRoundTrip)
 
 TEST(Value, CharRoundTrip)
 {
-    char c = 'c';
+    char c = 'x';
     ValueType value = ToValue(c);
     EXPECT_TRUE(IsChar(value));
-    EXPECT_EQ(ToChar(value), 'c');
+    EXPECT_EQ(ToChar(value), 'x');
 }
 
 TEST(Value, Null)
