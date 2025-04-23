@@ -4,6 +4,7 @@
 /**
  * Can switch between 64-bit and 32-bit values by defining SET_VALUE_64
  */
+#define SET_VALUE_64
 
 #include "Objects/Object.h"
 #include "Objects/ObjectString.h"
@@ -25,7 +26,7 @@ namespace Noble::Core::Runtime
     constexpr ValueType QNaN = 0x7fe00000;
     constexpr ValueType SignBit = 0x80000000;
     constexpr ValueType CharBit = 0x00100000;
-#elif SET_VALUE_64
+#elifdef SET_VALUE_64
     typedef uint64_t ValueType;
     typedef std::float64_t FloatType;
     constexpr ValueType QNaN = 0x7ffc000000000000;
