@@ -22,6 +22,7 @@ std::string Noble::Core::Debug::OpToString(const Op::Code op)
         case Op::Code::Less:           ss << "LES"; break;
         case Op::Code::LessEqual:      ss << "LEQ"; break;
         case Op::Code::Loop:           ss << "LOP"; break;
+        case Op::Code::Modulo:         ss << "MOD"; break;
         case Op::Code::Multiply:       ss << "MUL"; break;
         case Op::Code::Negate:         ss << "NEG"; break;
         case Op::Code::Not:            ss << "NOT"; break;

@@ -32,6 +32,7 @@ namespace Noble::Core
             Less,
             LessEqual,
             Loop,
+            Modulo,
             Multiply,
             Negate,
             Not,
