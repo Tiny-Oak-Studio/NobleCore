@@ -36,17 +36,11 @@ namespace Noble::Core
         /// @brief Get a ref to an indexed element of the array
         T& operator[](Address::Single index);
 
-        /// @brief Get a const ref of an element offset from back
-        const T& Peek(Address::Single offset) const;
-
-        /// @brief Get ref of an element offset from back
-        T& Peek(Address::Single offset);
-
         /// @brief Returns the capacity of the array
-        Address::Single Capacity() const;
+        [[nodiscard]] Address::Single Capacity() const;
 
         /// @brief Returns the number of elements in the array
-        Address::Single Count() const;
+        [[nodiscard]] Address::Single Count() const;
 
         /// @brief Get a pointer to the underlying array
         T* GetArray();
@@ -133,18 +127,6 @@ namespace Noble::Core
     T& List<T>::operator[](Address::Single index)
     {
         return array[index];
-    }
-
-    template <typename T>
-    const T &List<T>::Peek(const Address::Single offset) const
-    {
-        return array[count - offset - 1];
-    }
-
-    template <typename T>
-    T& List<T>::Peek(const Address::Single offset)
-    {
-        return array[count - offset - 1];
     }
 
     template <typename T>
